@@ -1,0 +1,18 @@
+.input{
+    border: none;
+    border-bottom: 1px solid #d6d4d4;
+    outline: none;
+    margin-bottom: 2em;
+}
+
+.primary{
+    background-color: #43c4f7;
+    align-items: center;
+}
+
+.form{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
