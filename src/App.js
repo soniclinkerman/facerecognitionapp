@@ -1,12 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App-styles.scss';
 import Navigation from './Navigation/Navigation-component';
+import Logo from './Logo/Logo-component';
 
 function App() {
   return (
     <div className="App">
-      <Navigation/>
+
+      <div className="nav">
+        <Logo logo={"/assets/png/logo.png"}/>
+        <Navigation/>
+      </div>
+
      
     </div>
   );
