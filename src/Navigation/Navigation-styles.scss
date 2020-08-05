@@ -1,0 +1,19 @@
+.nav-item{
+    list-style: none;
+}
+
+.nav-item{
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+}
+
+.sign-out{
+    text-decoration: none;
+    color: #000;
+    transition: all .2s ease-in-out;
+}
+
+.sign-out:hover{
+    transform: scale(0.7);
+}
