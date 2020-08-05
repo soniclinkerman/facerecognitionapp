@@ -1,7 +1,7 @@
 import React from 'react';
 import './App-styles.scss';
-import Navigation from './Navigation/Navigation-component';
-import Logo from './Logo/Logo-component';
+import Navigation from './components/Navigation/Navigation-component';
+import Logo from './components/Logo/Logo-component';
 
 function App() {
   return (
