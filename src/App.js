@@ -3,6 +3,7 @@ import './App-styles.scss';
 import Navigation from './components/Navigation/Navigation-component';
 import Logo from './components/Logo/Logo-component';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
+import Rank from './components/Rank/Rank-component';
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
         <Logo logo={"/assets/png/logo.png"}/>
         <Navigation/>
       </div>
+
+      <Rank rank={8}/>
 
       <ImageLinkForm/>
 
