@@ -4,11 +4,11 @@ const ImageLinkForm = () => {
     return(
         <div className="image-link-form">
             <div>
-            <p>
-                This app can detect faces!
-            </p>
 
             <div className="form">
+            <p className="form-title">
+                This app can detect faces!
+            </p>
                 <input type="text" className="input" placeholder="Enter image link here"/>
                 <button className="primary">Detect</button>
             </div>
