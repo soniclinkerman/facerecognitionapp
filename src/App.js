@@ -3,7 +3,8 @@ import './App-styles.scss';
 import Navigation from './components/Navigation/Navigation-component';
 import Logo from './components/Logo/Logo-component';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
-
+import Clarifai from "clarifai"
+import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 
 let app = new Clarifai.App({
   apiKey:"479f1e89ce1f400fb480b63805612332"
@@ -72,7 +73,12 @@ class App extends Component {
         <Navigation/>
       </div>
 
+      <ImageLinkForm 
+      onChange={this.onInputChange} 
+      onClick={this.onSubmit}
+      />
 
+      <FaceRecognition image={this.state.imageURL} box={this.state.box}/>
 
      
     </div>
