@@ -1,0 +1,19 @@
+#inputimage{
+    width: 500px;
+    height: auto;
+}
+
+.face-recognition{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.bounding-box{
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 2px solid rgb(93, 213, 250);
+}
