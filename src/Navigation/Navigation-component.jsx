@@ -1,13 +1,9 @@
 import React from "react"
 import "./Navigation-styles.scss"
-const Navigation = () => {
-    return(
-        <div>
-            <nav>
-                <li className="nav-item"><a href="/" className="sign-out">Sign Out</a></li>
-            </nav>
 
-        </div>
+const Navigation = ({onRouteChange}) => {
+    return(
+            <li className="nav-item"><a href="/" className="sign-out" onClick={()=> onRouteChange("signin")}>Sign Out</a></li>
     )
 }
 
