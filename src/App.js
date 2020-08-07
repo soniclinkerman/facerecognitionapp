@@ -5,6 +5,7 @@ import Logo from './components/Logo/Logo-component';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Clarifai from "clarifai"
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import SignIn from './components/SignIn/SignIn';
 
 let app = new Clarifai.App({
   apiKey:"479f1e89ce1f400fb480b63805612332"
@@ -16,7 +17,8 @@ class App extends Component {
     this.state = {
       input: "",
       imageURL: "https://samples.clarifai.com/face-det.jpg",
-      box: {}
+      box: {},
+      route: "signin"
     }
   }
   //https://samples.clarifai.com/face-det.jpg
@@ -62,16 +64,26 @@ class App extends Component {
   );
   }
 
+  changeRoute = (route) => {
+    this.setState({route:route})
+  }
+
   
  
   render(){
+   
   return (
     <div className="App">
 
-      <div className="nav">
-        <Logo logo={"/assets/png/logo.png"}/>
-        <Navigation/>
-      </div>
+       {this.state.route === "signin" ?
+       <SignIn onRouteChange={this.changeRoute}/>
+       :
+       <div>
+
+        <div className="nav">
+          <Logo logo={"/assets/png/logo.png"}/>
+          <Navigation onRouteChange={this.changeRoute}/>
+        </div>
 
       <ImageLinkForm 
       onChange={this.onInputChange} 
@@ -79,8 +91,11 @@ class App extends Component {
       />
 
       <FaceRecognition image={this.state.imageURL} box={this.state.box}/>
+      </div>
 
-     
+
+  }
+    
     </div>
   );
 }
