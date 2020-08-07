@@ -63,7 +63,7 @@ class App extends Component {
   }
 
   
-  
+ 
   render(){
   return (
     <div className="App">
@@ -73,12 +73,16 @@ class App extends Component {
         <Navigation/>
       </div>
 
+<<<<<<< HEAD
       <ImageLinkForm 
       onChange={this.onInputChange} 
       onClick={this.onSubmit}
       />
 
       <FaceRecognition image={this.state.imageURL} box={this.state.box}/>
+=======
+
+>>>>>>> 2b1a83cdeb344cbdbe888419e51c43af817bd19b
 
      
     </div>
