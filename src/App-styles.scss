@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  align-self: center;
+}
+
+button{
+  padding: 0.5em 5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
