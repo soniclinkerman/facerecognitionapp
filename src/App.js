@@ -6,10 +6,13 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Clarifai from "clarifai"
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import SignIn from './components/SignIn/SignIn';
+import Register from './components/Register/Register';
 
 let app = new Clarifai.App({
   apiKey:"479f1e89ce1f400fb480b63805612332"
 })
+
+
 
 class App extends Component {
   constructor(){
@@ -22,6 +25,12 @@ class App extends Component {
     }
   }
   //https://samples.clarifai.com/face-det.jpg
+
+  componentDidMount(){
+    fetch("http://localhost:3000")
+    .then(response => response.json())
+    .then(console.log)
+  }
 
   calculateFaceLocation = (data) => {
    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
@@ -71,13 +80,12 @@ class App extends Component {
   
  
   render(){
+    const {route,imageURL,box} = this.state
    
   return (
     <div className="App">
 
-       {this.state.route === "signin" ?
-       <SignIn onRouteChange={this.changeRoute}/>
-       :
+       {route === "home" ?
        <div>
 
         <div className="nav">
@@ -90,8 +98,16 @@ class App extends Component {
       onClick={this.onSubmit}
       />
 
-      <FaceRecognition image={this.state.imageURL} box={this.state.box}/>
+      <FaceRecognition image={imageURL} box={box}/>
       </div>
+      :
+      (
+        route === "signin" 
+        ? <SignIn onRouteChange={this.changeRoute}/>
+        : <Register onRouteChange={this.changeRoute}/>
+      )
+      
+      
 
 
   }
