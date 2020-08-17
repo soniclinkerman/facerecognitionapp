@@ -21,7 +21,16 @@ class App extends Component {
       input: "",
       imageURL: "https://samples.clarifai.com/face-det.jpg",
       box: {},
-      route: "signin"
+      route: "signin",
+
+      user: {
+        id: "",
+        name: "",
+        username: "",
+        email: "",
+        entries: 0,
+        joined: "",
+      }
     }
   }
   //https://samples.clarifai.com/face-det.jpg
@@ -30,6 +39,18 @@ class App extends Component {
     fetch("http://localhost:3000")
     .then(response => response.json())
     .then(console.log)
+  }
+
+  loadUser = (data) => {
+    this.setState({user: {
+      id: data.id,
+      name:data.name,
+      username: data.username,
+      email: data.email,
+      entries: data.entries,
+      joined: data.joined,
+
+    }})
   }
 
   calculateFaceLocation = (data) => {
@@ -104,7 +125,7 @@ class App extends Component {
       (
         route === "signin" 
         ? <SignIn onRouteChange={this.changeRoute}/>
-        : <Register onRouteChange={this.changeRoute}/>
+        : <Register loadUser={this.loadUser}onRouteChange={this.changeRoute} />
       )
       
       
