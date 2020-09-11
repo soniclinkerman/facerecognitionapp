@@ -31,14 +31,16 @@ class SignIn extends Component{
             })
         })
         .then(response => response.json())
-        .then(data => {
-            if(data === "success"){
-                this.props.onRouteChange("home")
-            }
-            else{
-                this.setState({info: <p>Wrong credentials, please try again</p>})
-                
-            }
+      .then(user => {
+        if(user.id){
+          this.props.loadUser(user);
+          this.props.onRouteChange('home');
+        } else{console.log("dd")
+            this.setState({info: <p>Wrong credentials, please try again</p>})
+
+        }
+        }).catch(err => {
+            this.setState({info: <p>Wrong credentials, please try again</p>})
         })
     }
 
